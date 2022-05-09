@@ -137,67 +137,13 @@
 
 
 
-  /*****************************************Add Pos*******************************/
-
-  /*
-
-  function addPositions(group,secgrop, thertgrop) {
 
 
-        if (tunglePlumbing == false) {
-            tunglePlumbing = true;
-      var inform = [group, secgrop,thertgrop];
-      for(var i =0; i<inform.length; i++){
-      var  addAllCategory = inform[i]
-      
-  console.log(addAllCategory);
-            $('.thileCatalog').fadeOut(2000);
-
-            $.each(addAllCategory, function (key, data) {
-
-                $.each(data, function (index, value) {
-
-                    if (value['visibl'] == true) {
-                        atributsIdPlumb.unshift(value.kode);
-                        $('<div class="plumbingCatalog col thumb " id ="' + value['kode'] + '" data-kode="' + value['kode'] + '"><div class="card rounded-0 product-card"><a href="#"><img src="' + value['img'] + '" class="card-img-top" alt="..."></a><div class="card-body"><div class="product-info"><a href="#"><h6 style="height: 60px" class="product-name mb-2">' + value['name'] + '</h6></a>' +
-                            '<div class="d-flex align-items-center">' +
-                            '<div class="mb-1 product-price">' +
-                            '<span class="fs-5">' + value['price'] + '</span>' +
-                            '</div>' +
-
-                            '</div>' +
-                            '<div class="product mt-2">' +
-                            '<div class="d-grid gap-2">' +
-                            '<div class="d-flex justify-content-between p-1 bg-white">' +
-                            '<span class="row row-cols-1  align-items-left">Країна</span>' +
-                            '<span class="row row-cols-2   align-items-right">' + value['countr'] + '</span>' +
-                            '</div>' +
-                            '<div class="d-flex justify-content-between p-1 bg-white">' +
-                            '<span class="row row-cols-1  align-items-left">Бренд</span>' +
-                            '<span class="row row-cols-2   align-items-right">' + value['brand'] + '</span>' +
-                            '</div>' +
-                            '<div class="d-flex justify-content-between p-1 bg-white">' +
-                            '<span class="row row-cols-1  align-items-left">Код товару</span>' +
-                            '<span class="row row-cols-2   align-items-right">' + value['kode'] + '</span>' +
-                            '	</div>' + '<button onclick="myFunction(' + value['kode'] + ')" type="button"  class="btn btn-secondary btn-lg btn-block" id="removedPos">Видалити </button>' +
-                            '<a onclick="infoPos(' + value['kode'] + ')"  href="javascript:;" class="btn btn-light btn-ecomm" data-bs-toggle="modal" data-bs-target="#QuickViewProduct">' + '<i class="bx bx-zoom-in"></i>Quick View</a>' +
-                            '<a onclick="redFunct(' + value['kode'] + ')" href="javascript:;" class="btn btn-light btn-ecomm" data-bs-toggle="modal" data-bs-target="#QuickViewProduct_red">' + 'Редагувати</a>' +
-                            '</div></div></div></div></div></div>').appendTo('#products');
-
-                    };
-                });
-
-            });
-  }
-
-        }
-
-    };
-  */
 
   /*****************************************Add Pos END*******************************/
   $(document).ready(function () {
-    
+    tungle = false;
+          tunglePlumbing = false;tunglePos = "all";
       addTile(), addPlumb();
 
       atributsId = atributsIdPlumb.concat(atributsIdTile);
@@ -221,7 +167,7 @@
       $('.plumbingCatalog').fadeOut(500);
       $('.thileCatalog').fadeIn(500);
       tunglePos = "tile";
-      console.log(tunglePos);
+      
       addTile();
       $('.category').text('Плитка');
   });
@@ -232,7 +178,7 @@
       $('.thileCatalog').fadeOut(500);
       $('.plumbingCatalog').fadeIn(500);
       tunglePos = "plumbing";
-      console.log(tunglePos);
+     
       $('.category').text('Ванни');
 
   });
@@ -247,7 +193,7 @@
                   if (text == text_delet) {
 
                       const spl = product[i][j].splice(k, k + 1);
-                      console.log(spl);
+                    
                   };
               }
           }
@@ -270,7 +216,7 @@
           tunglePlumbing = false;
           addPlumb();
           addTile();
-          console.log("all")
+         
       }
 
   } /*)*/ ;
@@ -292,7 +238,7 @@
       $('.errorSearch').removeAttr("style").hide();
 
       var text = $('#searchText').val();
-      console.log(text);
+      
       for (var i = 0; i < product.length; i++) {
           for (var j = 0; j < product[i].length; j++) {
               for (var k = 0; k < product[i][j].length; k++) {
@@ -322,7 +268,7 @@
       tunglePlumbing = false;
       addPlumb();
       addTile();
-      console.log(resultSearch);
+      
       if (resultSearch > 0) {
           $('.errorSearch').removeAttr("style").hide();
       } else {
@@ -469,6 +415,7 @@
                       $('#heightInfo').text(text_info.height);
                       $('#descriptInfo').text(text_info.descript);
                       $('#priceInfo').text(text_info.price);
+                      $('#descrInfo').text(text_info.descript);
 
 
                       $('#imgInfo').remove();
@@ -496,7 +443,7 @@
               };
               testin = atributsId[i - 1];
               infoPos(testin);
-              console.log(testin)
+             
           }
       }
 
